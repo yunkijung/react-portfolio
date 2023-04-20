@@ -1,24 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+
+import { Route, Routes } from 'react-router-dom';
+import Navbar from './components/Navbar/Navbar';
+import HomePage from './pages/HomePage/HomePage';
+import ResumePage from './pages/ResumePage/ResumePage';
+import AboutPage from './pages/AboutPage/AboutPage';
+import ProjectsPage from './pages/ProjectsPage/ProjectsPage';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App" 
+    style={{ 
+      backgroundImage: 'url("/topimage2.webp")' 
+      , backgroundRepeat: 'no-repeat'
+      , backgroundSize: 'cover'
+      }}>
+      <Navbar/>
+      <Routes>
+        <Route path="/" element={<HomePage/>}/>
+        <Route path="/about" element={<AboutPage/>}/>
+        <Route path="/projects" element={<ProjectsPage/>}/>
+        <Route path="/resume" element={<ResumePage/>}/>
+      </Routes>
     </div>
   );
 }
